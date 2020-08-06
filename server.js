@@ -16,7 +16,7 @@ server.get('/api/users', (req, res) =>  {
 
 
 // * gets single user by id
-server.get('api/users/:id', (req, res) => {
+server.get('/api/users/:id', (req, res) => {
     const id = req.params.id
     
     const user = database.getUserById(id)
@@ -24,22 +24,24 @@ server.get('api/users/:id', (req, res) => {
     if (user) {
         res.json(user)
     } else {
-        res.status.json({message: 'user not found'})
+        res.status(404).json({message: 'user not found'})
     }
 })
 
 
 // * creates new user in the database 
-server.post('api/users/:id', (req, res) => {
+server.post('/api/users', (req, res) => {
     const userId = nanoid()
 
     const newUser = database.createUser({
+       name: req.name,
+       bio: req.bio,
        id: userId,
-       name: req.body.name,
-       bio: req.body.bio,
    })
 
-   res.status(201).json(newUser)
+    res.status(201).json(newUser)
+    // res.status(201).json({resp: req.body.name})
+  
 })
 
 
@@ -59,7 +61,7 @@ server.delete('/api/users/:id', (req, res) => {
 })
 
 // * updates the user based on id and returns the updated user 
-server.put('api/users/:id', (req, res) => {
+server.put('/api/users/:id', (req, res) => {
     const id = req.params.id
     const user = database.getUserById(req.params.id)
 

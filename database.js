@@ -26,7 +26,7 @@ function createUser(data) {
 	}
 
 	users.push(payload)
-	return payload
+	return users
 }
 
 function updateUser(id, data) {
