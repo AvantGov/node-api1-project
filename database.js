@@ -1,10 +1,8 @@
-const nanoid = require('nanoid/non-secure')
-const userId = nanoid()
 
 let users = [
-	{ id: userId, name: "Jane Doe", bio: "Not Tarzan's Wife, another Jane" },
-	{ id: userId, name: "John Doe", bio: "Not Tarzan's Wife, another Jane" },
-	{ id: userId, name: "Jack Doe", bio: "Not Tarzan's Wife, another Jane" },
+	{ id: Math.random(), name: "Jane Doe", bio: "Not Tarzan's Wife, another Jane" },
+	{ id: Math.random(), name: "John Doe", bio: "Not Tarzan's Wife, another Jane" },
+	{ id: Math.random(), name: "Jack Doe", bio: "Not Tarzan's Wife, another Jane" },
 	{ id: '1', name: "Jane Doe", bio: "Not Tarzan's Wife, another Jane" },
 	{ id: '2', name: "John Doe", bio: "Not Tarzan's Wife, another Jane" },
 	{ id: '3', name: "Jack Doe", bio: "Not Tarzan's Wife, another Jane" },
