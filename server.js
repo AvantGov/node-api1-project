@@ -75,6 +75,7 @@ server.put('/api/users/:id', (req, res) => {
 
     if (user) {
         database.updateUser(id, req.body)
+        res.status(204).end()
     } else {
         res.status(404).json({
             message: 'user not found'
